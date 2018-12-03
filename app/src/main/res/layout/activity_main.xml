@@ -10,16 +10,13 @@
         android:id="@+id/Sound_Equalizer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="preset_name"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="preset_name" />
-        <!--
-        android:text="@string/preset_name"   Need to figure out what @string is
-        -->
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,8 +24,6 @@
         android:layout_below="@+id/Sound_Equalizer"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
-        app:layout_constraintLeft_toLeftOf=""
-        app:layout_constraintRight_toRightOf=""
         app:layout_constraintTop_toTopOf="@+id/guideline">
 
         <LinearLayout
@@ -71,7 +66,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:textSize="12sp" />
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    tools:text="60Hz" />
             </LinearLayout>
 
             <LinearLayout
@@ -106,7 +103,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:textSize="12sp" />
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    tools:text="230Hz" />
             </LinearLayout>
 
             <LinearLayout
@@ -141,7 +140,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:textSize="12sp" />
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    tools:text="910Hz" />
             </LinearLayout>
 
             <LinearLayout
@@ -176,7 +177,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:textSize="12sp" />
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    tools:text="3600Hz" />
             </LinearLayout>
 
             <LinearLayout
@@ -211,7 +214,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:textSize="12sp" />
+                    android:textAlignment="center"
+                    android:textSize="12sp"
+                    tools:text="14000Hz" />
             </LinearLayout>
 
         </LinearLayout>
