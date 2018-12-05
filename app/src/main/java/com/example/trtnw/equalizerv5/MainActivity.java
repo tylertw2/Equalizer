@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Spinner;
+import android.widget.Switch;
 
 import com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBar;
 
@@ -31,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Initiate switch
+        Switch simpleSwitch = findViewById(R.id.switch1);
+        simpleSwitch.setTextOn("On"); // displayed text of the Switch whenever it is in checked or on state
+        simpleSwitch.setTextOff("Off");
         //show_spinner_presets();
 
 
