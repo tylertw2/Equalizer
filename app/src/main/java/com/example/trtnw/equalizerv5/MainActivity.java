@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     private MediaPlayer myMediaPlayer;
     private Equalizer myEqualizer;
 
+    public String[] names = new String[11];
+    public short[][] presetLevels = new short[11][0];
+
+    private CustomPreset cp;
     /**
      * Executed when app is loaded.
      * @param savedInstanceState Data supplied to onCreate if activity is restarted or reoriented
@@ -37,40 +41,60 @@ public class MainActivity extends AppCompatActivity {
         simpleSwitch.setTextOn("On"); // displayed text of the Switch whenever it is in checked or on state
         simpleSwitch.setTextOff("Off");
         //show_spinner_presets();
-
+        //Create equalizer with default settings of 0dB
+        myEqualizer = new Equalizer(0, getTaskId());
+        myEqualizer.setEnabled(true);
+        //loadPresets();
 
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (isFinishing() && myMediaPlayer != null) {
+            myEqualizer.release();
+        }
+    }
+
     /**
      * Shows spinner with presets to choose from
      */
     public void show_spinner_presets() {
         //spinner1 setup
+        // REPLACE FOR LOOP WITH CustomPreset.java STUFF!!!!!!!!
+        //load CustomPreset class
+        ArrayList<CustomPreset> presetList = new ArrayList<>();
+        presetList = CustomPreset.getPresetList();
         ArrayList<String> presetNames = new ArrayList<>();
+        for (short i = 0; i <= 7; i++) {
+            presetNames.add(presetList.get(i).getName(i));
+        }
+        ArrayList<Short> presetLevels = new ArrayList<>();
+        for (short i = 0; i <= 7; i++) {
+            presetLevels.add(presetList.get((int) i).getLevels(i)[(int) i]);
+        }
+        final ArrayList<Short> presetLevelsInnerClass = presetLevels;
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, presetNames);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spinner dropdown1 = findViewById(R.id.spinner1);
         //get list of presets in mEqualizer class
         //short is required by getPresetName(i)
-        for (short i = 0; i < myEqualizer.getNumberOfPresets(); i++) {
-            presetNames.add(myEqualizer.getPresetName(i));
-        }
         dropdown1.setAdapter(spinnerAdapter);
         //set preset selected!!!!!!!
         dropdown1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //first preset listed is set as default current preset
-                myEqualizer.usePreset((short) position);
-                //get number of bands from equalizer engine
-                short numberFrequencyBands = myEqualizer.getNumberOfBands();
+                    //myEqualizer.usePreset((short) position);
                 //get lowest setting for each band
+                for (int i = 0; i <= 7; i++) {
+                    useSettings(presetLevelsInnerClass);
+                }
                 short bottomBandLevel = myEqualizer.getBandLevelRange()[0];
-                //set seekBar indicator based on each band
-                for (short i = 0; i < numberFrequencyBands; i++) {
-                    VerticalSeekBar seekBar = findViewById(i);
-                    //indicate current gain or loss in level
-                    seekBar.setProgress(myEqualizer.getBandLevel((short) (i - bottomBandLevel)));
-                    //https://stackoverflow.com/questions/35831900/equalizer-getbandleveli-returns-value-0
+                for (int i = 0; i <= 5; i++) {
+                    VerticalSeekBar bar = (VerticalSeekBar) (Object) ("seekBar" + Integer.toString(i));
+                    bar = findViewById(i);
+                    bar.setProgress(myEqualizer.getBandLevel((short) (i - bottomBandLevel)));
+                        // //https://stackoverflow.com/questions/35831900/equalizer-getbandleveli-returns-value-0
                 }
             }
             @Override
@@ -79,6 +103,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public void useSettings(ArrayList<Short> levels) {
+        for (short i = 0; i <=5; i++) {
+            myEqualizer.setBandLevel(i, levels.get((int) i));
+        }
+    }
+
+    /**public void loadPresets() {
+        names[0] =
+    }
+     */
 }
 
 
