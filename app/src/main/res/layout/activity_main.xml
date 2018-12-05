@@ -4,32 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/Sound_Equalizer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="preset_name"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="preset_name" />
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="468dp"
-        android:layout_below="@+id/Sound_Equalizer"
+        android:id="@+id/linearLayout"
+        android:layout_width="350dp"
+        android:layout_height="433dp"
+        android:layout_below="@+id/spinner1"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="@+id/guideline">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner1"
+        app:layout_constraintVertical_bias="0.047">
 
         <LinearLayout
             android:id="@+id/equalizerContainer"
             android:layout_width="match_parent"
-            android:layout_height="360dp"
+            android:layout_height="0dp"
             android:layout_weight="6"
             android:orientation="horizontal"
             android:padding="3dp">
@@ -66,6 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:text="60Hz"
                     android:textAlignment="center"
                     android:textSize="12sp"
                     tools:text="60Hz" />
@@ -103,6 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:text="230Hz"
                     android:textAlignment="center"
                     android:textSize="12sp"
                     tools:text="230Hz" />
@@ -140,6 +141,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:text="910Hz"
                     android:textAlignment="center"
                     android:textSize="12sp"
                     tools:text="910Hz" />
@@ -177,6 +179,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:text="3600Hz"
                     android:textAlignment="center"
                     android:textSize="12sp"
                     tools:text="3600Hz" />
@@ -214,6 +217,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:text="14000Hz"
                     android:textAlignment="center"
                     android:textSize="12sp"
                     tools:text="14000Hz" />
@@ -249,6 +253,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_begin="31dp" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="240dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="91dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spinner1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>
