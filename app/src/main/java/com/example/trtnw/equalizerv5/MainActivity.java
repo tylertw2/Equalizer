@@ -62,17 +62,21 @@ public class MainActivity extends AppCompatActivity {
         //spinner1 setup
         // REPLACE FOR LOOP WITH CustomPreset.java STUFF!!!!!!!!
         //load CustomPreset class
-        ArrayList<CustomPreset> presetList = new ArrayList<>();
-        presetList = CustomPreset.getPresetList();
+        ArrayList<CustomPreset> presetList = CustomPreset.getPresetList();
         ArrayList<String> presetNames = new ArrayList<>();
         for (short i = 0; i <= 7; i++) {
             presetNames.add(presetList.get(i).getName(i));
         }
-        ArrayList<Short> presetLevels = new ArrayList<>();
+        ArrayList<ArrayList<Short>> allPresetLevels = new ArrayList<>();
         for (short i = 0; i <= 7; i++) {
-            presetLevels.add(presetList.get((int) i).getLevels(i)[(int) i]);
+            ArrayList<Short> presetLevels = new ArrayList<>();
+            for (short j = i; j <= 7; j++) {
+                presetLevels.add(presetList.get((int) i).getLevels(i)[(int) i]);
+            }
+            allPresetLevels.add(presetLevels);
         }
-        final ArrayList<Short> presetLevelsInnerClass = presetLevels;
+        //final ArrayList<Short> presetLevelsInnerClass = presetLevels;
+        final ArrayList<ArrayList<Short>> allPresetLevelsInnerClass = allPresetLevels;
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, presetNames);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spinner dropdown1 = findViewById(R.id.spinner1);
@@ -86,9 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 //first preset listed is set as default current preset
                     //myEqualizer.usePreset((short) position);
                 //get lowest setting for each band
-                for (int i = 0; i <= 7; i++) {
-                    useSettings(presetLevelsInnerClass);
-                }
+                useSettings(allPresetLevelsInnerClass.get(position));
                 short bottomBandLevel = myEqualizer.getBandLevelRange()[0];
                 for (int i = 0; i <= 5; i++) {
                     VerticalSeekBar bar = (VerticalSeekBar) (Object) ("seekBar" + Integer.toString(i));
