@@ -11,10 +11,10 @@ public class CustomPreset {
         this.levels = setLevels;
     }
     //Hard-code the presets
-    //private CustomPreset[] myPresets = new CustomPreset[10];
-    private static CustomPreset preset0 = new CustomPreset("Default", new short[]{100, 200, 300, 400, 500});
-    private static CustomPreset preset1 = new CustomPreset("Bass+High Boost", new short[]{100, 0, -800, -500, 200});
-    private static CustomPreset preset2 = new CustomPreset("Bass Boost", new short[]{100, 100, -0, -300, -300});
+    //private CustomPreset[] myPresets = new CustomPreset[10];, replace with ArrayList
+    private static CustomPreset preset0 = new CustomPreset("Default", new short[]{0, 0, 0, 0, 0});
+    private static CustomPreset preset1 = new CustomPreset("Bass+High Boost", new short[]{100, 10, -800, -500, 200});
+    private static CustomPreset preset2 = new CustomPreset("Bass is Life", new short[]{1500, 100, -0, -300, -300});
     private static CustomPreset preset3 = new CustomPreset("High Boost", new short[]{-300, -300, -300, 100, 500});
     private static CustomPreset preset4 = new CustomPreset("Classical", new short[]{100, 300, -700, -100, 300});
     private static CustomPreset preset5 = new CustomPreset("Dance", new short[]{500, 100, -300, -600, -200});

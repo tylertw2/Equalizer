@@ -9,11 +9,9 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="315dp"
-        android:layout_height="469dp"
+        android:layout_width="320dp"
+        android:layout_height="515dp"
         android:layout_below="@+id/spinner1"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:orientation="vertical"
         app:layout_constraintStart_toEndOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@id/spinner1">
@@ -21,7 +19,7 @@
         <LinearLayout
             android:id="@+id/equalizerContainer"
             android:layout_width="match_parent"
-            android:layout_height="448dp"
+            android:layout_height="match_parent"
             android:layout_weight="6"
             android:baselineAligned="false"
             android:orientation="horizontal"
@@ -38,6 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:textSize="12sp" />
 
                 <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper
@@ -77,6 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:textSize="12sp" />
 
                 <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper
@@ -116,6 +116,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:textSize="12sp" />
 
                 <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper
@@ -155,6 +156,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:textSize="12sp" />
 
                 <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper
@@ -194,6 +196,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:textSize="12sp" />
 
                 <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper
@@ -231,7 +234,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="41dp" />
+        app:layout_constraintGuide_begin="34dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline2"
@@ -262,42 +265,29 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:entries="@array/preset_array"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="92dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/spinner1"
+        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintStart_toEndOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="35dp"
-        android:layout_height="480dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_width="42dp"
+        android:layout_height="515dp"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline">
 
         <LinearLayout
-            android:layout_width="48dp"
-            android:layout_height="480dp"
+            android:layout_width="42dp"
+            android:layout_height="515dp"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="52dp"
-                android:layout_height="480dp"
+                android:layout_height="515dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -312,20 +302,9 @@
                     tools:text="+15dB" />
 
                 <TextView
-                    android:id="@+id/textView23"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="@string/lowdb"
-                    android:textSize="12sp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView22"
-                    tools:text="-15dB" />
-
-                <TextView
                     android:id="@+id/textView22"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="151dp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/nodb"
@@ -333,6 +312,17 @@
                     app:layout_constraintBottom_toTopOf="@+id/textView23"
                     app:layout_constraintTop_toBottomOf="@+id/textView21"
                     tools:text="0dB" />
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="match_parent"
+                    android:layout_height="155dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/lowdb"
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView22"
+                    tools:text="-15dB" />
 
             </LinearLayout>
         </LinearLayout>
