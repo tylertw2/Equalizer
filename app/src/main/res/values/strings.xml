@@ -1,3 +1,21 @@
 <resources>
+    <string name="hz1">60Hz</string>
+    <string name="hz2">230Hz</string>
+    <string name="hz3">910Hz</string>
+    <string name="hz4">3600Hz</string>
+    <string name="hz5">14000Hz</string>
+    <string name="highdb">+15dB</string>
+    <string name="nodb">0dB</string>
+    <string name="lowdb">-15dB</string>
     <string name="app_name">EqualizerV5</string>
+    <string-array name="preset_array">
+        <item>Default</item>
+        <item>Bass+High Boost</item>
+        <item>Bass Boost</item>
+        <item>High Boost</item>
+        <item>Classical</item>
+        <item>Dance</item>
+        <item>Rock</item>
+        <item>Perfect</item>
+    </string-array>
 </resources>
