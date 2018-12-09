@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         //Create MediaPlayer with default settings of 0dB for all bands
         //Play mp3 file from res/raw/
-        myMediaPlayer = MediaPlayer.create(this, R.raw.lund);
+        myMediaPlayer = MediaPlayer.create(this, R.raw.vulf);
         myMediaPlayer.start();
         //Enable equalizer object
         myEqualizer = new Equalizer(0, myMediaPlayer.getAudioSessionId());
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     public void show_spinner_presets() {
         ArrayList<CustomPreset> presetList = CustomPreset.getPresetList();
         /** Print out band levels from all presets */
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < CustomPreset.getNumPresets(); i++) {
             System.out.println(i + "    " + CustomPreset.getLevelsFromCP(CustomPreset.getPresetList().get(i)));
         }
         ArrayList<String> presetNames = new ArrayList<>();
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         // get list of all preset's levels as ArrayList of ArrayLists
         ArrayList<ArrayList<Short>> presetLevels = new ArrayList<>();;
         //get list of presetNames
-        for (short i = 0; i < 8; i++) {
+        for (short i = 0; i < CustomPreset.getNumPresets(); i++) {
             presetLevels.add(CustomPreset.getLevelsFromCP(CustomPreset.getPresetList().get(i)));
             presetNames.add(presetList.get(i).getName(i));
         }
@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void useSettings(ArrayList<Short> levels) {
+        //Most android phones only have 5 frequency bands: 60, 230, 910, 3600 and 14000Hz
         for (short i = 0; i < 5; i++) {
             myEqualizer.setBandLevel(i, levels.get((int) i));
             System.out.println("band " + i + ":  " + myEqualizer.getBandLevel(i));

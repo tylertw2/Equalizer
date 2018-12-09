@@ -13,13 +13,13 @@ public class CustomPreset {
     //Hard-code the presets
     //private CustomPreset[] myPresets = new CustomPreset[10];, replace with ArrayList
     private static CustomPreset preset0 = new CustomPreset("Default", new short[]{0, 0, 0, 0, 0});
-    private static CustomPreset preset1 = new CustomPreset("Bass+High Boost", new short[]{100, 10, -800, -500, 200});
-    private static CustomPreset preset2 = new CustomPreset("Destroy my Bass", new short[]{1500, 1000, -0, -800, -1000});
-    private static CustomPreset preset3 = new CustomPreset("High Boost", new short[]{-300, -300, -300, 100, 500});
-    private static CustomPreset preset4 = new CustomPreset("Classical", new short[]{100, 300, -700, -100, 300});
-    private static CustomPreset preset5 = new CustomPreset("Dance", new short[]{500, 100, -300, -600, -200});
-    private static CustomPreset preset6 = new CustomPreset("Rock", new short[]{200, -500, -300, 400, 200});
-    private static CustomPreset preset7 = new CustomPreset("Perfect", new short[]{200, -200, -200, -100, -100});
+    private static CustomPreset preset1 = new CustomPreset("Bass+High Boost", new short[]{400, 200, -800, -200, 300});
+    private static CustomPreset preset2 = new CustomPreset("Dance", new short[]{500, 100, -300, -600, -200});
+    private static CustomPreset preset3 = new CustomPreset("Dad Rock", new short[]{200, -500, -300, 400, 200});
+    private static CustomPreset preset4 = new CustomPreset("Bourgeois", new short[]{100, 300, -700, -100, 300}); //classical
+    private static CustomPreset preset5 = new CustomPreset("Never Enough Bass", new short[]{1500, 1000, -0, -800, -1000});
+    private static CustomPreset preset6 = new CustomPreset("Global Warming is a Hoax", new short[]{-1500, -1500, -1500, 1500, 1500}); //it's "bassless"... heh
+    private static CustomPreset preset7 = new CustomPreset("Very Quiet", new short[]{1500, 1500, 1500, 1500, 1500}); //i'm not sorry
     //private CustomPreset preset8 = new CustomPreset("Bass/High Boost", new short[]{100, 0, -80, -50, 20});
     //myPresets[0] = bhBoost;
     //myPresets[1] = new CustomPreset("Bass Boost", new short {});
@@ -36,22 +36,12 @@ public class CustomPreset {
         presetList.add(preset7);
         return presetList;
     }
-
-    //onEvent create new
-    public void setName(CustomPreset preset, String setName) {
-        preset.name = setName;
+    public static int getNumPresets() {
+        return CustomPreset.getPresetList().size();
     }
+    //onEvent create new
     public String getName(short index) {
         return getPresetList().get(index).name;
-    }
-    public ArrayList<Short> getLevels(short index) {
-        ArrayList<Short> toReturn = new ArrayList<>();
-        System.out.println();
-        for (int i = 0; i < 5; i++) {
-            System.out.print("penis:   " + getPresetList().get(index).levels[index]);
-            toReturn.add(getPresetList().get(index).levels[index]);
-        }
-        return toReturn;
     }
     public static ArrayList<Short> getLevelsFromCP(CustomPreset cp) {
         ArrayList<Short> toReturn = new ArrayList<>();
